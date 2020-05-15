@@ -23,8 +23,3 @@ Ref: <a href="https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permiss
 ## Step 4:
 
 - Head over to Grafana, to see the metrics by using Prometheus as a sink and view the chaos exporter.
-
-
-## Images for Reference:
-
-![](https://github.com/litmuschaos/chaos-observability/blob/master/images/litmus-metrics.png)

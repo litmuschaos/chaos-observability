@@ -11,7 +11,7 @@ data:
             {
                "access":"proxy",
                 "editable": true,
-                "name": "litmus-k8s-events",
+                "name": "chaos-exporter-metrics",
                 "orgId": 1,
                 "type": "prometheus",
                 "url": "http://litmus-prometheus-service.litmus.svc.cluster.local:80",
