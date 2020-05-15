@@ -28,5 +28,5 @@
 
 ### Images for reference:
 
-![](images/kibana-display-filter.png)
-![](images/kibana-edit-filter.png)
+![](https://github.com/litmuschaos/chaos-observability/blob/master/images/kibana-display-filter.png)
+![](https://github.com/litmuschaos/chaos-observability/blob/master/images/kibana-edit-filter.png)
