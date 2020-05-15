@@ -55,7 +55,7 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: litmus-eventrouter-prometheus 
+  name: litmus-prometheus 
   namespace: litmus
 spec:
   replicas: 1
