@@ -21,7 +21,7 @@
 
 - Head over to Kibana, and add metricbeat index, and view the Kubernetes events.
 
-## Step 5(Optional):
+## Step 5:
 
 - If you want to just view Chaos Metrics, please add this filter:
     `kubernetes.event.involved_object.kind: ChaosEngine`
