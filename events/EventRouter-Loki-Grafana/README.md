@@ -8,7 +8,7 @@
 ## Step 2:
 
 - Install Loki Grafana and Promtail Stack:
-    `$ helm upgrade --install loki loki/loki-stack  --set grafana.enabled=true,prometheus.enabled=false,prometheus.alertmanager.persistentVolume.enabled=false,prometheus.server.persistentVolume.enabled=false`
+    `$ helm upgrade --install default loki/loki-stack  --set grafana.enabled=true,prometheus.enabled=false,prometheus.alertmanager.persistentVolume.enabled=false,prometheus.server.persistentVolume.enabled=false`
 
 ## Step 3:
 
