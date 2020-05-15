@@ -33,6 +33,23 @@ data:
     - job_name: 'k8s-events'
       static_configs:
         - targets: ['litmus-eventrouter.litmus.svc.cluster.local:8080']
+    - job_name: blackbox
+      metrics_path: /probe
+      params:
+        module: [http_2xx]
+      static_configs:
+        - targets:
+          - http://prometheus.io/blog
+          - https://google.com            
+          - https://www.telegraph.co.uk
+          - 'nginx.default.svc.cluster.local:80'
+      relabel_configs:
+        - source_labels: [__address__]
+          target_label: __param_target
+        - source_labels: [__param_target]
+          target_label: instance
+        - target_label: __address__
+          replacement: 'prometheus-blackbox-exporter:9115'
 ---
 # prometheus-deployment
 apiVersion: apps/v1
@@ -102,4 +119,3 @@ spec:
       targetPort: 9090 # pods expose this port
       # Note that this Service will be visible as both NodeIP:nodePort and clusterIp:Port
 ---
-
