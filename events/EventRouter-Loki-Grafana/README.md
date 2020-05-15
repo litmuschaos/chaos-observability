@@ -14,3 +14,7 @@
 
 - After this, we have to just head over Grafana Dashboard, add Loki as an Datasource, by using it's ClusterIP, and then just add this filter:
     `$ {app="eventrouter"}`
+
+## Images for Reference:
+
+![](images/loki-basic-loglabel.png)
