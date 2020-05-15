@@ -17,4 +17,4 @@
 
 ## Images for Reference:
 
-![](images/loki-basic-loglabel.png)
+![](https://github.com/litmuschaos/chaos-observability/blob/master/images/loki-basic-loglabel.png)
