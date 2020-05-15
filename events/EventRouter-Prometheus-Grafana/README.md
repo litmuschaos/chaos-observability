@@ -1,7 +1,7 @@
 
 # Install eventrouter-prometheus-grafana stack for visualizing Kubernetes Events
 
-## All the steps in this guide deploys the stack in Litmus Namespace and require Litmus Service Account to be created. (kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.3.0.yaml). 
+## All the steps in this guide deploys the stack in Litmus Namespace and require Litmus Service Account to be created. (`kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.3.0.yaml`). 
 Ref: https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-required-to-run-litmus-chaos-experiments
 
 
@@ -18,7 +18,7 @@ Ref: https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-requ
 ## Step 3:
 
 - After this, use Grafana to visualize Kubernetes Events send by Prometheus
-    `$ kubectl apply -f ./2-litmus-grafana.yaml`
+    `$ kubectl apply -f ./3-litmus-grafana.yaml`
 
 ## Step 4:
 
