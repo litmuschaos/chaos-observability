@@ -14,4 +14,6 @@
 
 ## Images for Reference:
 
-![](https://github.com/litmuschaos/chaos-observability/blob/master/images/loki-basic-joblogs.png)
+![](https://github.com/litmuschaos/chaos-observability/blob/master/images/loki-basic-joblogs-1.png)
+
+![](https://github.com/litmuschaos/chaos-observability/blob/master/images/loki-basic-joblogs-2.png)
