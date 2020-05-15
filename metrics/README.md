@@ -1,8 +1,12 @@
 
 # Install chaosexporter-prometheus-grafana stack for visualizing Litmus metrics
 
-- All the steps in this guide deploys the stack in Litmus Namespace and require Litmus Service Account to be created. (`kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.4.0.yaml`). 
-Ref: <a href="https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-required-to-run-litmus-chaos-experiments">FAQ</a>
+- The Kubernetes resources used as part of this exercise are installed into litmus namespace & use the Litmus Service Account. Refer: <a href="https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-required-to-run-litmus-chaos-experiments">FAQ</a>.
+
+  To install litmus infra components:
+
+  `kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.4.0.yaml`
+
 
 
 ## Step 1:
