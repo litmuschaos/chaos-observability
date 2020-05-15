@@ -39,9 +39,6 @@ data:
         module: [http_2xx]
       static_configs:
         - targets:
-          - http://prometheus.io/blog
-          - https://google.com            
-          - https://www.telegraph.co.uk
           - 'nginx.default.svc.cluster.local:80'
       relabel_configs:
         - source_labels: [__address__]

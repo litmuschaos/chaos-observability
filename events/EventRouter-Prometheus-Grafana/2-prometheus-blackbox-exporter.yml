@@ -32,7 +32,6 @@ spec:
       protocol: TCP
   selector:
     app: prometheus-blackbox-exporter
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -96,4 +95,3 @@ spec:
         - name: config
           configMap:
             name: prometheus-blackbox-exporter
-
