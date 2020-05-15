@@ -13,7 +13,7 @@ Ref: https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-requ
 ## Step 2:
 
 - Install Prometheus to use EventRouter service:
-    `$ kubectl apply -f /utils/prometheus-manifests.yaml`
+    `$ kubectl apply -f ./utils/prometheus-manifests.yaml`
 
 ## Step 3:
 
