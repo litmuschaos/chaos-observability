@@ -1,4 +1,4 @@
-# Install eventrouter-loki-grafana stack for visualizing Kubernetes Events
+# Install loki-promtail-grafana stack for visualizing Kubernetes Events
 
 
 ## Step 1:
