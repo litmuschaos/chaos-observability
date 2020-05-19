@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana-core
+  namespace: litmus
   labels:
     app: grafana
     component: core
@@ -70,6 +71,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: grafana-core
+  namespace: litmus
   labels:
     app: grafana-core
     component: core
@@ -88,6 +90,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress-grafana
+  namespace: litmus
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"

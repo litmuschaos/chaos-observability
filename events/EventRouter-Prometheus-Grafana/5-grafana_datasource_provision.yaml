@@ -3,15 +3,20 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: litmus-events-grafana-datasource-provision
+  namespace: litmus
 data:
   prometheus-datasource.yaml: |
     apiVersion: 1
+    deleteDatasources:
+      - name: Prometheus
+        orgId: 1
     datasources:
     - name: Prometheus
       type: prometheus
-      access: direct
+      access: proxy
       orgId: 1
-      url: http://localhost:9090
+      url: http://litmus-prometheus-service
       isDefault: false
+      basicAuth: false
       version: 1
       editable: true
