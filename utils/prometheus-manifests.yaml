@@ -1,7 +1,3 @@
-# The following file is intended for deployments that are not already
-# configured with prometheus. This is a minified version of the config
-# from the files present under ./openebs-monitoring/
-# 
 # Prometheus tunables
 apiVersion: v1
 kind: ConfigMap
