@@ -99,25 +99,25 @@ data:
             {
               "expr": "(changes(heptio_eventrouter_normal_total{reason=\"ChaosEngineInitialized\", involved_object_namespace=\"$namespace\", involved_object_name=\"$chaos_name\"}[40s]) > 0) * 4",
               "interval": "",
-              "legendFormat": "",
+              "legendFormat": "Chaos Start",
               "refId": "A"
             },
             {
               "expr": "(changes(heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\", involved_object_namespace=\"$namespace\", involved_object_name=\"$chaos_name\"}[40s]) > 0) * 4",
               "interval": "",
-              "legendFormat": "",
+              "legendFormat": "Chaos End",
               "refId": "B"
             },
             {
               "expr": "increase(heptio_eventrouter_normal_total{reason=\"ChaosInject\", involved_object_namespace=\"$namespace\", involved_object_name=\"$chaos_name\"}[40s])",
               "interval": "",
-              "legendFormat": "",
+              "legendFormat": "Chaos Inject",
               "refId": "C"
             },
             {
               "expr": "probe_success{instance=\"$service_name\", job=\"blackbox\"}",
               "interval": "",
-              "legendFormat": "",
+              "legendFormat": "Service Availability",
               "refId": "D"
             }
           ],

@@ -1,8 +1,10 @@
 
-# Install eventrouter-prometheus-grafana stack for visualizing Kubernetes Events
+## Install eventrouter-prometheus-grafana stack for visualizing Kubernetes Events
 
-## All the steps in this guide deploys the stack in Litmus Namespace and require Litmus Service Account to be created. (kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.3.0.yaml). 
-Ref: https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-required-to-run-litmus-chaos-experiments
+#### All the steps in this guide deploys the stack in Litmus Namespace and require Litmus Service Account to be created. 
+> `kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.3.0.yaml`
+
+Ref: <a href="https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-required-to-run-litmus-chaos-experiments"> FAQ</a>
 
 
 ## Step 1:
@@ -29,9 +31,9 @@ Ref: https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-requ
 ## Step 4:
 
 - Install grafana dasboard, datasource configmaps
-    `$ kubectl apply -f ./3-grafana-dashboards.yaml`
-    `$ kubectl apply -f ./4-grafana-dashboard_provision.yaml`
-    `$ kubectl apply -f ./5-grafana-datasource_provision.yaml`
+    - `$ kubectl apply -f ./3-grafana-dashboards.yaml` 
+    - `$ kubectl apply -f ./4-grafana-dashboard_provision.yaml`
+    - `$ kubectl apply -f ./5-grafana-datasource_provision.yaml`
 
 ## Step 5:
 
