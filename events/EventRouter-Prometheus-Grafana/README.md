@@ -10,19 +10,19 @@ Ref: <a href="https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permiss
 ## Step 1:
 
 - Install EventRouter via 
-    `$ kubectl apply -f ./1-litmus-eventrouter.yaml`
+    `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/1-litmus-eventrouter.yaml`
 
 ## Step 2:
 
 - Install Prometheus blackbox exporter.yml
-    `$ kubectl apply -f ./2-prometheus-blackbox-exporter.yml`
+    `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/2-prometheus-blackbox-exporter.yaml`
 
 ## Step 3:
 
 - Install Prometheus to use EventRouter service:
-    `$ kubectl apply -f ./utils/prometheus-manifests.yaml`
+    `kubectl apply -f ./utils/prometheus-manifests.yaml`
 
-***Note: By default the blackbox exporter scrape job looking for nginx service, can be modify according to the requirement***
+***Note: By default the blackbox exporter scrape job looking for the nginx service, can be modify according to the requirement***
 ```yaml
         static_configs:
         - targets:
@@ -31,15 +31,17 @@ Ref: <a href="https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permiss
 ## Step 4:
 
 - Install grafana dasboard, datasource configmaps
-    - `$ kubectl apply -f ./3-grafana-dashboards.yaml` 
-    - `$ kubectl apply -f ./4-grafana-dashboard_provision.yaml`
-    - `$ kubectl apply -f ./5-grafana-datasource_provision.yaml`
+    - `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/3-grafana-dashboards.yaml` 
+    - `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/4-grafana-dashboard_provision.yaml`
+    - `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/5-grafana-datasource_provision.yaml`
 
 ## Step 5:
 
 - After this, use Grafana to visualize Kubernetes Events pull by Prometheus
-    `$ kubectl apply -f ./6-grafana_deployment.yaml`
+    `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/6-grafana_deployment.yaml`
 
 ## Step 6:
 
 - Head over to Grafana, to see the events by using Prometheus as a sink and view the Kubernetes events.
+
+![](https://github.com/litmuschaos/chaos-observability/blob/master/images/events-grafana-dashboard.png)
