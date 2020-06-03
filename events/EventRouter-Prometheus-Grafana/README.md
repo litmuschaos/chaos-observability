@@ -1,47 +1,102 @@
 
-## Install eventrouter-prometheus-grafana stack for visualizing Kubernetes Events
+# Monitoring Chaos Events on Grafana
 
-#### All the steps in this guide deploys the stack in Litmus Namespace and require Litmus Service Account to be created. 
-> `kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.3.0.yaml`
+## PreRequisites  
+  
+This guide assumes that you already have the: 
 
-Ref: <a href="https://docs.litmuschaos.io/docs/faq-general/#what-are-the-permissions-required-to-run-litmus-chaos-experiments"> FAQ</a>
+- Litmus infrastructure in place: 
+  - LitmusChaos CRDs installed
+  - Chaos Operator running 
+  - The desired experiment CR created (in the app namespace or the admin namespace) 
+  
+  If not, please refer to the [litmus docs](https://docs.litmuschaos.io) for detailed steps to achieve the same
+  
+- A sample application, say nginx, whose availability we can monitor while it undergoes chaos. If you don't have it installed 
+  already, you can execute this command: 
+  
+  ```
+  kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/sample-application/nginx.yaml
+  ```
+  
 
+## Steps to Setup Chaos Events Visualization
+  
 
-## Step 1:
+### Step 1:
 
-- Install EventRouter via 
-    `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/1-litmus-eventrouter.yaml`
+- Install HeptioLabs' [eventrouter](https://github.com/heptiolabs/eventrouter)
 
-## Step 2:
-
-- Install Prometheus blackbox exporter.yml
-    `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/2-prometheus-blackbox-exporter.yaml`
-
-## Step 3:
-
-- Install Prometheus to use EventRouter service:
-    `kubectl apply -f ./utils/prometheus-manifests.yaml`
-
-***Note: By default the blackbox exporter scrape job looking for the nginx service, can be modify according to the requirement***
-```yaml
-        static_configs:
-        - targets:
-          - 'nginx.default.svc.cluster.local:80'
 ```
-## Step 4:
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/1-litmus-eventrouter.yaml
+```
+(Helps push kubernetes events to metrics endpoint)
 
-- Install grafana dasboard, datasource configmaps
-    - `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/3-grafana-dashboards.yaml` 
-    - `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/4-grafana-dashboard_provision.yaml`
-    - `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/5-grafana-datasource_provision.yaml`
+### Step 2:  
 
-## Step 5:
+- Install the Prometheus Blackbox exporter 
 
-- After this, use Grafana to visualize Kubernetes Events pull by Prometheus
-    `kubectl apply -f ./events/EventRouter-Prometheus-Grafana/6-grafana_deployment.yaml`
+```
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/2-prometheus-blackbox-exporter.yaml
+```
 
-## Step 6:
+(Helps convert service availability as a prometheus metric) 
 
-- Head over to Grafana, to see the events by using Prometheus as a sink and view the Kubernetes events.
+### Step 3:
+
+- Install Prometheus to pull the app service & chaos metrics from the blackbox exporter & eventrouter sources respectively
+
+```
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/utils/prometheus-manifests.yaml
+```
+
+***Note: By default the blackbox exporter scrape job looks for the nginx service, can be modify according to the requirement***
+
+```yaml
+
+static_configs:
+
+- targets:
+
+- 'nginx.default.svc.cluster.local:80'
+
+```
+
+### Step 4:
+
+- Install grafana dashboard, datasource configmaps
+
+```
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/3-grafana-dashboards.yaml
+```
+
+```
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/4-grafana_dashboard_provision.yaml
+```
+
+```
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/5-grafana_datasource_provision.yaml
+```
+
+### Step 5:
+
+- Create the grafana deployment & use it to visualize chaos events pulled by `Prometheus` 
+
+```
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/6-grafana_deployment.yaml
+```
+
+### Step 6:
+
+- After this, run a chaos experiment, say [pod-delete](https://docs.litmuschaos.io/docs/pod-delete/) to inject chaos on the nginx app and, thereby, generate chaos events. 
+
+```
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/6-grafana_deployment.yaml
+```
+
+
+### Step 7:
+ 
+- Head over to Grafana, to see the events by using Prometheus as a sink and view the Kubernetes events.  
 
 ![](https://github.com/litmuschaos/chaos-observability/blob/master/images/events-grafana-dashboard.png)
