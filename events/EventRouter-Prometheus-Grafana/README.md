@@ -80,13 +80,22 @@ kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observabili
 
 ### Step 5:
 
-- After this, create the grafana deployment & use it to visualize chaos events pulled by `Prometheus` 
+- Create the grafana deployment & use it to visualize chaos events pulled by `Prometheus` 
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/6-grafana_deployment.yaml
 ```
 
 ### Step 6:
+
+- After this, run a chaos experiment, say [pod-delete](https://docs.litmuschaos.io/docs/pod-delete/) to inject chaos on the nginx app and, thereby, generate chaos events. 
+
+```
+kubectl apply -f https://raw.githubusercontent.com/litmuschaos/chaos-observability/master/events/EventRouter-Prometheus-Grafana/6-grafana_deployment.yaml
+```
+
+
+### Step 7:
  
 - Head over to Grafana, to see the events by using Prometheus as a sink and view the Kubernetes events.  
 
