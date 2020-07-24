@@ -5,7 +5,7 @@
 
   To install litmus infra components:
 
-  `kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.4.0.yaml`
+  `kubectl apply -f https://litmuschaos.github.io/litmus/litmus-operator-v1.6.1.yaml`
 
 
 
