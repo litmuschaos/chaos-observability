@@ -33,13 +33,13 @@ Chaos experiments on sock-shop app with grafana dashboard to monitor it.
 - Install the litmus chaos operator and CRDs 
 
   ```
-  kubectl apply -f https://litmuschaos.github.io/pages/litmus-operator-v1.6.0.yaml
+  kubectl apply -f https://litmuschaos.github.io/litmus/litmus-operator-v1.6.1.yaml
   ```
 
 - Install the litmus-admin serviceaccount for centralized/admin-mode of chaos execution
 
   ```
-  kubectl apply -f https://raw.githubusercontent.com/litmuschaos/pages/master/docs/litmus-admin-rbac.yaml
+  kubectl apply -f https://litmuschaos.github.io/litmus/litmus-admin-rbac.yaml
   ```
 
 - Install the chaos experiments in admin(litmus) namespace
