@@ -32,6 +32,6 @@ if you feel insecure about how to start contributing, Don't worry -  You can als
 
 However, for those individuals who want a bit more guidance on the best way to contribute,Please read our [contribution guidelines](https://github.com/litmuschaos/litmus/blob/master/CONTRIBUTING.md) for details.
 
-:rocket: For any major changes, feel free to open an [issue](/issues) first to discuss with community. we highly appreciate it :+1:
+:rocket: For any major changes, feel free to open an [issue](https://github.com/litmuschaos/chaos-observability/issues) first to discuss with community. we highly appreciate it :+1:
 
 We'd love to have your contribution! :heart:
