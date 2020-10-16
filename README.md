@@ -1,5 +1,9 @@
 # Litmus Chaos Observability
 
+![dir structure](https://img.shields.io/badge/Code_Quality-well_organized-green.svg?style=for-the-badge)
+![Built with love](https://i.postimg.cc/zGcGsXPN/built-with-love.png)
+![GitHub contributors](https://img.shields.io/github/contributors/litmuschaos/chaos-observability?style=for-the-badge)
+
 This repository contains Observability for [LitmusChaos](https://github.com/litmuschaos) Experiments :rocket: 
 
 
